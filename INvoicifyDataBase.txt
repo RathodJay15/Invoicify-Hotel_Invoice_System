@@ -1,0 +1,63 @@
+-- 1. Customer Table
+CREATE TABLE customer (
+    CID INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100),
+    phone VARCHAR(15),
+    city VARCHAR(100),
+    address VARCHAR(250),
+    email VARCHAR(100),
+    aadharno VARCHAR(20),
+    PRIMARY KEY (CID)
+);
+
+
+-- 2. Room Table
+CREATE TABLE room (
+    roomno VARCHAR(50) PRIMARY KEY,
+    type VARCHAR(50),
+    price DECIMAL(10, 2),
+    status VARCHAR(20) -- e.g. 'Available', 'Booked', 'Maintenance'
+);
+
+--Rooms data
+INSERT INTO room (roomno, type, price, status) VALUES
+('DAC401', 'Deluxe AC', 1500.00, 'available'),
+('DAC402', 'Deluxe AC', 1500.00, 'available'),
+('DNA301', 'Deluxe Non-AC', 1200.00, 'available'),
+('DNA302', 'Deluxe Non-AC', 1200.00, 'available'),
+('DNA303', 'Deluxe Non-AC', 1200.00, 'available'),
+('SAC201', 'Standard AC', 1000.00, 'available'),
+('SAC202', 'Standard AC', 1000.00, 'available'),
+('SAC501', 'Suite AC', 2500.00, 'available'),
+('SAC502', 'Suite AC', 2500.00, 'available'),
+('SAC503', 'Suite AC', 2500.00, 'available'),
+('SNA101', 'Standard Non-AC', 800.00, 'available'),
+('SNA102', 'Standard Non-AC', 800.00, 'available'),
+('SNA103', 'Standard Non-AC', 800.00, 'available');
+
+
+-- 3. Invoice Table
+CREATE TABLE invoice (
+    inno INT NOT NULL AUTO_INCREMENT,
+    CID INT,
+    invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    discount DECIMAL(5,2),
+    GST DECIMAL(10,2),
+    total_amount DECIMAL(10,2),
+    PRIMARY KEY (inno),
+    FOREIGN KEY (CID) REFERENCES customer(CID)
+);
+
+
+-- 4. Invoice Details Table
+CREATE TABLE invoice_details (
+    detail_id INT PRIMARY KEY,
+    inno INT,
+    roomno VARCHAR(50),
+    checkin_date DATE,
+    checkout_date DATE,
+    no_of_nights INT,
+    FOREIGN KEY (inno) REFERENCES invoice(inno),
+    FOREIGN KEY (roomno) REFERENCES room(roomno)
+);
+
