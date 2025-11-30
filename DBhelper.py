@@ -1,6 +1,6 @@
 import mysql.connector as mysql
 
-db = mysql.connect(host = "localhost" ,user = "jay" , password = "RaJa#181015",database = "invoicify")
+db = mysql.connect(host = "localhost" ,user = "user_name" , password = "password",database = "invoicify")
 
 def insert_customer(name,mobono,addharno,city,address,email):
     cursor = db.cursor()
