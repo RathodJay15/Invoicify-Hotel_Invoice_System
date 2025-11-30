@@ -307,7 +307,7 @@ class main:
         # Create the email
         msg = EmailMessage()
         msg['Subject'] = 'Your Invoice'
-        msg['From'] = "invoicify6@gmail.com"
+        msg['From'] = "your_gmail@gmail.com"
         msg['To'] = self.emailID
         msg.set_content('Please find attached the invoice in PDF format.')
 
@@ -320,7 +320,7 @@ class main:
 
         # Connect and send the email
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login("invoicify6@gmail.com", "xftl dica xcba tndp")
+            smtp.login("your_gmail@gmail.com", "xftl dica xcba tndp")
             smtp.send_message(msg)
 
         messagebox.showinfo("Info", "Invoice Sent Successfully!") 
