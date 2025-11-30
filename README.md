@@ -180,15 +180,11 @@ Uses a Word template (`INVOICE.docx`) with the following variables:
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source.
 
 ## Author
 
 Hotel Invoice System Development Team
-
-## Support
-
-For issues, questions, or contributions, please create an issue in the repository.
 
 ---
 
